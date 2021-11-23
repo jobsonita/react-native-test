@@ -1,7 +1,9 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Alert, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+import {api} from '../../services/api';
 
 import {
   ButtonText,
@@ -28,8 +30,32 @@ import {
 import {RootStackParamList} from '../../Router';
 
 export function LoginScreen() {
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [fetching, setFetching] = React.useState(false);
+
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'Home'>>();
+
+  async function handleLogin() {
+    setFetching(true);
+    const response = await api.post('/Acesso/login', {
+      login: username,
+      senha: password,
+      nomeApp: 'br.com.eem.teste',
+      versaoApp: '10',
+      versaoSO: '10',
+      idDispositivo: 'teste-mobile',
+    });
+    console.log(response.status);
+    console.log(response.data);
+    if (response.status === 200 && response.data.conteudo.length > 0) {
+      navigation.navigate('Home');
+    } else {
+      Alert.alert('Erro', 'Usuário ou senha inválidos');
+      setFetching(false);
+    }
+  }
 
   return (
     <Container>
@@ -43,17 +69,26 @@ export function LoginScreen() {
             <Image>
               <Text>O</Text>
             </Image>
-            <Input placeholder="Usuário" />
+            <Input
+              placeholder="Usuário"
+              value={username}
+              onChangeText={text => setUsername(text)}
+            />
           </InputRow>
           <HorizontalDivider />
           <InputRow>
             <Image>
               <Text>O</Text>
             </Image>
-            <Input placeholder="Senha" secureTextEntry={true} />
+            <Input
+              placeholder="Senha"
+              secureTextEntry={true}
+              value={password}
+              onChangeText={text => setPassword(text)}
+            />
           </InputRow>
         </InputGroup>
-        <LoginButton onPress={() => navigation.navigate('Home')}>
+        <LoginButton onPress={handleLogin} disabled={fetching}>
           <LoginButtonText>Entrar</LoginButtonText>
         </LoginButton>
         <HelpGroup>
@@ -67,7 +102,7 @@ export function LoginScreen() {
         </HelpGroup>
       </Content>
       <LoginWithPhone>
-        <LoginWithPhoneButton>
+        <LoginWithPhoneButton disabled={fetching}>
           <Image>
             <Text>O</Text>
           </Image>
