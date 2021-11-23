@@ -2,6 +2,7 @@ import React from 'react';
 import {Alert, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useAsyncStorage} from '@react-native-community/async-storage';
 
 import {api} from '../../services/api';
 
@@ -37,6 +38,8 @@ export function LoginScreen() {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'Home'>>();
 
+  const asyncStorage = useAsyncStorage('@eem:token');
+
   async function handleLogin() {
     setFetching(true);
     const response = await api.post('/Acesso/login', {
@@ -47,9 +50,9 @@ export function LoginScreen() {
       versaoSO: '10',
       idDispositivo: 'teste-mobile',
     });
-    console.log(response.status);
-    console.log(response.data);
     if (response.status === 200 && response.data.conteudo.length > 0) {
+      const {conteudo} = response.data;
+      await asyncStorage.setItem(JSON.stringify(conteudo[0].token));
       navigation.navigate('Home');
     } else {
       Alert.alert('Erro', 'Usuário ou senha inválidos');
