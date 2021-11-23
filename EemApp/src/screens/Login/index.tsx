@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
@@ -13,9 +13,23 @@ export function LoginScreen() {
 
   return (
     <S.View>
-      <Text>Clique para acessar</Text>
+      <Text>Informe o usuário e a senha encaminhados pela escola</Text>
+      <TextInput placeholder="Usuário" />
+      <TextInput placeholder="Senha" />
       <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text>Acessar</Text>
+        <Text>Entrar</Text>
+      </TouchableOpacity>
+      <View>
+        <TouchableOpacity>
+          <Text>Esqueci a minha senha</Text>
+        </TouchableOpacity>
+        <View />
+        <TouchableOpacity>
+          <Text>Política de Privacidade</Text>
+        </TouchableOpacity>
+      </View>
+      <TouchableOpacity>
+        <Text>Entrar com celular</Text>
       </TouchableOpacity>
     </S.View>
   );
