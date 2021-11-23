@@ -19,7 +19,11 @@ export function Router() {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
-          options={{title: '<'}}
+          options={{
+            title: '<',
+            headerTintColor: 'white',
+            headerStyle: {backgroundColor: '#2b999a'},
+          }}
         />
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
