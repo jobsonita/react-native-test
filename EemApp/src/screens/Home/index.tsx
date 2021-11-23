@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {FlatList, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAsyncStorage} from '@react-native-community/async-storage';
@@ -7,34 +7,63 @@ import {useAsyncStorage} from '@react-native-community/async-storage';
 import {S} from './styles';
 
 import {RootStackParamList} from '../../Router';
-import {api} from '../../services/api';
+
+import {School} from '../../components/School';
+
+interface Conteudo {
+  contexto: string;
+  guid: string;
+  id: number;
+  nomeAplicacao: string;
+  nomeCompleto: string;
+  token: string;
+  urlIconeContexto: string;
+  urlLogoContexto: string;
+}
 
 export function HomeScreen() {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList, 'Login'>>();
+  const [conteudo, setConteudo] = useState<Conteudo[]>([]);
 
-  const asyncStorage = useAsyncStorage('@eem:contexto');
+  const navigation =
+    useNavigation<
+      NativeStackNavigationProp<RootStackParamList, 'Transition'>
+    >();
+
+  const asyncStorage = useAsyncStorage('@eem:conteudo');
 
   useEffect(() => {
-    asyncStorage.getItem().then(contexto => {
-      if (contexto) {
-        console.log(contexto);
-        console.log(api.defaults.headers);
-        api
-          .post(`https://${contexto}/api/mensagem/ultimas-noticias/v3`, {})
-          .then(response => {
-            console.log(response);
-          });
+    asyncStorage.getItem().then(cont => {
+      if (cont) {
+        setConteudo(JSON.parse(cont));
       }
     });
-  }, [asyncStorage]);
+  }, []);
+
+  function handlePress(conteudo: Conteudo) {
+    navigation.navigate('Transition');
+  }
 
   return (
     <S.View>
-      <Text>Clique para acessar</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-        <Text>Sair</Text>
-      </TouchableOpacity>
+      <View>
+        <Text>O</Text>
+        <TextInput placeholder="Busca" />
+      </View>
+      <FlatList
+        data={conteudo}
+        keyExtractor={item => item.guid}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            activeOpacity={0.6}
+            onPress={() => handlePress(item)}>
+            <School
+              name={item.nomeAplicacao}
+              contexto={item.contexto}
+              urlIconeContexto={item.urlIconeContexto}
+            />
+          </TouchableOpacity>
+        )}
+      />
     </S.View>
   );
 }

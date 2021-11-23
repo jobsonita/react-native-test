@@ -4,10 +4,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {HomeScreen} from './screens/Home';
 import {LoginScreen} from './screens/Login';
+import {TransitionScreen} from './screens/Transition';
 
 export type RootStackParamList = {
   Login: undefined;
   Home: undefined;
+  Transition: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -26,6 +28,7 @@ export function Router() {
           }}
         />
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Transition" component={TransitionScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
