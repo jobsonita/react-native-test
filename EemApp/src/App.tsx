@@ -1,12 +1,7 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+
+import {Router} from './routes/Router';
 
 export default function App() {
-  return (
-    <>
-      <View>
-        <Text>Olá, Escola Em Movimento</Text>
-      </View>
-    </>
-  );
+  return <Router />;
 }
