@@ -52,7 +52,9 @@ export function LoginScreen() {
     });
     if (response.status === 200 && response.data.conteudo.length > 0) {
       const {conteudo} = response.data;
-      await asyncStorage.setItem(JSON.stringify(conteudo[0].token));
+      const token = conteudo[0].token;
+      await asyncStorage.setItem(JSON.stringify(token));
+      api.defaults.headers.common['X-Authorization'] = token;
       navigation.navigate('Home');
     } else {
       Alert.alert('Erro', 'Usuário ou senha inválidos');
