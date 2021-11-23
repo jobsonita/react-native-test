@@ -38,23 +38,25 @@ export function LoginScreen() {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'Home'>>();
 
-  const asyncStorage = useAsyncStorage('@eem:token');
+  const asyncStorage = useAsyncStorage('@eem:contexto');
 
   async function handleLogin() {
     setFetching(true);
-    const response = await api.post('/Acesso/login', {
-      login: username,
-      senha: password,
-      nomeApp: 'br.com.eem.teste',
-      versaoApp: '10',
-      versaoSO: '10',
-      idDispositivo: 'teste-mobile',
-    });
+    const response = await api.post(
+      'https://api.tst2.escolaapp.com/api/v1/Acesso/login',
+      {
+        login: username,
+        senha: password,
+        nomeApp: 'br.com.eem.teste',
+        versaoApp: '10',
+        versaoSO: '10',
+        idDispositivo: 'teste-mobile',
+      },
+    );
     if (response.status === 200 && response.data.conteudo.length > 0) {
       const {conteudo} = response.data;
-      const token = conteudo[0].token;
-      await asyncStorage.setItem(JSON.stringify(token));
-      api.defaults.headers.common['X-Authorization'] = token;
+      api.defaults.headers.common['X-Authorization'] = conteudo[0].token;
+      await asyncStorage.setItem(JSON.stringify(conteudo[0].contexto));
       navigation.navigate('Home');
     } else {
       Alert.alert('Erro', 'Usuário ou senha inválidos');

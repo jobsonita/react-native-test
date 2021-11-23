@@ -7,16 +7,25 @@ import {useAsyncStorage} from '@react-native-community/async-storage';
 import {S} from './styles';
 
 import {RootStackParamList} from '../../Router';
+import {api} from '../../services/api';
 
 export function HomeScreen() {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList, 'Login'>>();
 
-  const asyncStorage = useAsyncStorage('@eem:token');
+  const asyncStorage = useAsyncStorage('@eem:contexto');
 
   useEffect(() => {
-    asyncStorage.getItem().then(token => {
-      console.log(token);
+    asyncStorage.getItem().then(contexto => {
+      if (contexto) {
+        console.log(contexto);
+        console.log(api.defaults.headers);
+        api
+          .post(`https://${contexto}/api/mensagem/ultimas-noticias/v3`, {})
+          .then(response => {
+            console.log(response);
+          });
+      }
     });
   }, [asyncStorage]);
 
