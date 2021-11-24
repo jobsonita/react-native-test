@@ -5,11 +5,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeScreen} from './screens/Home';
 import {LoginScreen} from './screens/Login';
 import {TransitionScreen} from './screens/Transition';
+import {SchoolScreen} from './screens/School';
 
 export type RootStackParamList = {
   Login: undefined;
   Home: undefined;
   Transition: undefined;
+  School: {title: string};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -42,6 +44,16 @@ export function Router() {
           options={{
             statusBarHidden: true,
             headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="School"
+          component={SchoolScreen}
+          options={{
+            title: 'School',
+            headerTintColor: '#0d5d92',
+            headerStyle: {backgroundColor: 'white'},
+            headerBackVisible: false,
           }}
         />
       </Stack.Navigator>

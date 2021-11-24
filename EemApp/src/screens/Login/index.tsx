@@ -59,7 +59,6 @@ export function LoginScreen() {
     );
     if (response.status === 200) {
       const {conteudo} = await response.json();
-      console.log(conteudo);
       await asyncStorage.setItem(JSON.stringify(conteudo));
       setFetching(false);
       navigation.navigate('Home');
