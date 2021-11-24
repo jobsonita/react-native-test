@@ -27,7 +27,15 @@ export function Router() {
             headerStyle: {backgroundColor: '#2b999a'},
           }}
         />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            title: 'Selecione a sessão principal',
+            headerTintColor: 'white',
+            headerStyle: {backgroundColor: '#0d5d92'},
+          }}
+        />
         <Stack.Screen name="Transition" component={TransitionScreen} />
       </Stack.Navigator>
     </NavigationContainer>

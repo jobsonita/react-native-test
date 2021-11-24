@@ -61,6 +61,7 @@ export function LoginScreen() {
       const {conteudo} = await response.json();
       console.log(conteudo);
       await asyncStorage.setItem(JSON.stringify(conteudo));
+      setFetching(false);
       navigation.navigate('Home');
     } else {
       Alert.alert('Erro', 'Usuário ou senha inválidos');

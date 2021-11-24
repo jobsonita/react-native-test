@@ -48,6 +48,7 @@ export const Image = styled.View`
 export const Input = styled.TextInput.attrs({
   placeholderTextColor: 'white',
 })`
+  flex: 1;
   font-size: 20px;
   color: white;
 `;
