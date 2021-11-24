@@ -36,7 +36,14 @@ export function Router() {
             headerStyle: {backgroundColor: '#0d5d92'},
           }}
         />
-        <Stack.Screen name="Transition" component={TransitionScreen} />
+        <Stack.Screen
+          name="Transition"
+          component={TransitionScreen}
+          options={{
+            statusBarHidden: true,
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
