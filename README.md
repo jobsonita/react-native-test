@@ -9,7 +9,7 @@
 
 - Faça um *fork* do projeto no GitHub.
 - Adicione @eem-dev como um colaborador do seu *fork*. Você pode facilmente fazer isso em https://github.com/`seu-usuario`/react-native-test/settings/collaboration.
-- Quando iniciar o teste, faça um *commit* vazio com a mensagem `iniciando teste` :white_check_mark: e quando finalizar, faça um *commit* com a mensagem `finalizando teste`.
+- Quando iniciar o teste, faça um *commit* vazio com a mensagem `iniciando teste` :white_check_mark: e quando finalizar, faça um *commit* com a mensagem `finalizando teste` :white_check_mark:.
 - Faça vários *commits* com o objetivo de demonstrar a construção da solução
 - Não use *branches*.
 - Tente não gastar mais do que 4 horas para finalizar o teste.

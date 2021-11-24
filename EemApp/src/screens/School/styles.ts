@@ -6,6 +6,6 @@ export const Container = styled.View`
 `;
 
 export const StatusBar = styled.StatusBar.attrs({
-  barStyle: 'light-content',
+  barStyle: 'dark-content',
   backgroundColor: 'white',
 })``;

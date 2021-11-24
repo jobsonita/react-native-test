@@ -55,12 +55,6 @@ export function SchoolScreen() {
     });
   }, []);
 
-  useEffect(() => {
-    if (mensagens.length > 0) {
-      console.log(mensagens[0]);
-    }
-  }, [mensagens]);
-
   return (
     <Container>
       <StatusBar />
