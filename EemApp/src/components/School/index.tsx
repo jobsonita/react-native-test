@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  ChevronText,
+  ArrowIcon,
   Container,
   Context,
   DescriptionGroup,
@@ -28,7 +28,7 @@ export function School({name, contexto, urlIconeContexto}: SchoolProps) {
             <Title>{name}</Title>
             <Context>{contexto}</Context>
           </DescriptionGroup>
-          <ChevronText>&rsaquo;</ChevronText>
+          <ArrowIcon />
         </HorizontalWrapper>
         <HorizontalLine />
       </VerticalWrapper>

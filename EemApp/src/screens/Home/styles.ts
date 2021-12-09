@@ -1,5 +1,7 @@
 import styled from 'styled-components/native';
 
+import OctIcon from 'react-native-vector-icons/Octicons';
+
 export const Container = styled.View`
   flex: 1;
   background-color: white;
@@ -25,16 +27,19 @@ export const SearchBar = styled.View`
   padding-left: 8px;
 `;
 
-export const SearchBarIcon = styled.View`
-  width: 24px;
-  height: 24px;
+export const SearchBarIcon = styled(OctIcon).attrs({
+  name: 'search',
+  size: 16,
+  color: '#ccc',
+})`
   margin: 8px;
+  margin-left: 0;
 `;
 
 export const SearchInput = styled.TextInput`
   flex: 1;
   background-color: white;
-  font-size: 20px;
+  font-size: 18px;
   padding: 0;
 `;
 

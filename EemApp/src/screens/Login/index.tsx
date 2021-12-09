@@ -1,16 +1,17 @@
 import React from 'react';
-import {Alert, Keyboard, Text, TouchableWithoutFeedback} from 'react-native';
+import {Alert, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAsyncStorage} from '@react-native-community/async-storage';
 
 import {
+  BackIcon,
   ButtonText,
   Container,
   Content,
   HelpGroup,
+  HelpIcon,
   HorizontalDivider,
-  Image,
   Input,
   InputGroup,
   InputRow,
@@ -20,9 +21,13 @@ import {
   LoginWithPhone,
   LoginWithPhoneButton,
   LoginWithPhoneButtonText,
+  PasswordIcon,
+  PhoneIcon,
   PrivacyPolicyButton,
   SignUpButton,
   StatusBar,
+  TopBarGroup,
+  UserIcon,
   VerticalDivider,
 } from './styles';
 
@@ -73,14 +78,16 @@ export function LoginScreen() {
       <StatusBar />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Content>
+          <TopBarGroup>
+            <BackIcon />
+            <HelpIcon />
+          </TopBarGroup>
           <LoginDescriptionText>
             Informe o usuário e a senha encaminhados pela escola
           </LoginDescriptionText>
           <InputGroup>
             <InputRow>
-              <Image>
-                <Text>O</Text>
-              </Image>
+              <UserIcon />
               <Input
                 placeholder="Usuário"
                 value={username}
@@ -89,9 +96,7 @@ export function LoginScreen() {
             </InputRow>
             <HorizontalDivider />
             <InputRow>
-              <Image>
-                <Text>O</Text>
-              </Image>
+              <PasswordIcon />
               <Input
                 placeholder="Senha"
                 secureTextEntry={true}
@@ -114,9 +119,7 @@ export function LoginScreen() {
           </HelpGroup>
           <LoginWithPhone>
             <LoginWithPhoneButton disabled={fetching}>
-              <Image>
-                <Text>O</Text>
-              </Image>
+              <PhoneIcon />
               <LoginWithPhoneButtonText>
                 Entrar com o celular
               </LoginWithPhoneButtonText>

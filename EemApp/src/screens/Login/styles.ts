@@ -2,6 +2,11 @@ import styled from 'styled-components/native';
 
 import LinearGradient from 'react-native-linear-gradient';
 
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import SimpleLineIcon from 'react-native-vector-icons/SimpleLineIcons';
+
 export const Container = styled(LinearGradient).attrs({
   colors: ['#2b999a', '#196ca3'],
 })`
@@ -23,6 +28,30 @@ export const Content = styled.View`
   padding: 16px;
 `;
 
+export const TopBarGroup = styled.View`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px;
+  margin-top: 12px;
+`;
+
+export const BackIcon = styled(MaterialIcon).attrs({
+  name: 'arrow-back-ios',
+  color: 'white',
+  size: 32,
+})``;
+
+export const HelpIcon = styled(FontAwesomeIcon).attrs({
+  name: 'question-circle-o',
+  color: 'white',
+  size: 32,
+})``;
+
 export const LoginDescriptionText = styled.Text`
   font-size: 20px;
   color: white;
@@ -40,10 +69,31 @@ export const InputRow = styled.View`
   align-items: center;
 `;
 
-export const Image = styled.View`
-  width: 20px;
-  height: 20px;
-  margin: 8px;
+export const UserIcon = styled(SimpleLineIcon).attrs({
+  name: 'user',
+  color: 'white',
+  size: 24,
+})`
+  margin: 4px;
+  margin-left: 8px;
+`;
+
+export const PasswordIcon = styled(IonIcon).attrs({
+  name: 'key-outline',
+  color: 'white',
+  size: 24,
+})`
+  margin: 4px;
+  margin-left: 8px;
+`;
+
+export const PhoneIcon = styled(MaterialIcon).attrs({
+  name: 'phone-iphone',
+  color: 'white',
+  size: 28,
+})`
+  margin-top: 4px;
+  margin-bottom: 4px;
 `;
 
 export const Input = styled.TextInput.attrs({

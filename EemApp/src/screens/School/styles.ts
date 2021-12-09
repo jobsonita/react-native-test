@@ -1,5 +1,7 @@
 import styled, {css} from 'styled-components/native';
 
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 export const Container = styled.View`
   flex: 1;
   background-color: white;
@@ -34,6 +36,17 @@ export const ButtonIcon = styled.Text<{active?: boolean}>`
     active &&
     css`
       border-color: #0d5d92;
+    `}
+`;
+
+export const Icon = styled(MaterialCommunityIcon).attrs({
+  size: 40,
+})<{active?: boolean}>`
+  color: #bbb;
+  ${({active}) =>
+    active &&
+    css`
+      color: #0d5d92;
     `}
 `;
 

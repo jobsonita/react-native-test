@@ -12,9 +12,9 @@ import {Message} from '../../components/Message';
 import {
   Button,
   ButtonGroup,
-  ButtonIcon,
   ButtonText,
   Container,
+  Icon,
   NotificationCounter,
   NotificationCounterText,
   StatusBar,
@@ -89,32 +89,32 @@ export function SchoolScreen() {
       />
       <ButtonGroup>
         <Button>
-          <ButtonIcon active>N</ButtonIcon>
+          <Icon name="newspaper-variant" active />
           <ButtonText>Notícias</ButtonText>
         </Button>
         <Button>
           <NotificationCounter>
             <NotificationCounterText>6</NotificationCounterText>
           </NotificationCounter>
-          <ButtonIcon>E</ButtonIcon>
+          <Icon name="lead-pencil" />
           <ButtonText>Escrever</ButtonText>
         </Button>
         <Button>
           <NotificationCounter>
             <NotificationCounterText>6</NotificationCounterText>
           </NotificationCounter>
-          <ButtonIcon>M</ButtonIcon>
+          <Icon name="view-grid-outline" />
           <ButtonText>Menu</ButtonText>
         </Button>
         <Button>
-          <ButtonIcon>C</ButtonIcon>
+          <Icon name="car" />
           <ButtonText>Chegando</ButtonText>
         </Button>
         <Button>
           <NotificationCounter>
             <NotificationCounterText>99+</NotificationCounterText>
           </NotificationCounter>
-          <ButtonIcon>P</ButtonIcon>
+          <Icon name="account-outline" />
           <ButtonText>Perfil</ButtonText>
         </Button>
       </ButtonGroup>

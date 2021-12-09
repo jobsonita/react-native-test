@@ -1,5 +1,7 @@
 import styled from 'styled-components/native';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 export const Container = styled.View`
   flex-direction: row;
   align-items: center;
@@ -37,9 +39,13 @@ export const Context = styled.Text`
   font-size: 16px;
 `;
 
-export const ChevronText = styled.Text`
+export const ArrowIcon = styled(Icon).attrs({
+  name: 'arrow-forward-ios',
+  size: 24,
+  color: '#999',
+})`
+  margin-top: 16px;
   margin-left: 8px;
-  font-size: 32px;
 `;
 
 export const HorizontalLine = styled.View`

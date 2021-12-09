@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, Text} from 'react-native';
+import {FlatList} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAsyncStorage} from '@react-native-community/async-storage';
@@ -58,9 +58,7 @@ export function HomeScreen() {
       <StatusBar />
       <SearchBarContainer>
         <SearchBar>
-          <SearchBarIcon>
-            <Text>O</Text>
-          </SearchBarIcon>
+          <SearchBarIcon />
           <SearchInput placeholder="Busca" />
         </SearchBar>
       </SearchBarContainer>
