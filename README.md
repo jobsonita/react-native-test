@@ -84,4 +84,4 @@ Será considerado um diferencial se você fizer tratamentos de erros, falhas de 
 
 # Resultado
 
-<p align="center"><video width=400 src="https://i.imgur.com/uNWAKmb.mp4" autoplay controls></p>
+<p align="center"><a href="https://i.imgur.com/uNWAKmb.mp4">Vídeo da implementação final das telas do app.</a></p>
