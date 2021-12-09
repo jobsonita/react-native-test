@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAsyncStorage} from '@react-native-community/async-storage';
 
-import {ActivityIndicator, Container, Image} from './styles';
+import {ActivityIndicator, Container, Image, StatusBar} from './styles';
 
 import {RootStackParamList} from '../../Router';
 
@@ -55,6 +55,7 @@ export function TransitionScreen() {
 
   return (
     <Container>
+      <StatusBar />
       {escola && <Image source={{uri: escola.urlLogoContexto}} />}
       <ActivityIndicator />
     </Container>

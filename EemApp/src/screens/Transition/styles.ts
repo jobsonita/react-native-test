@@ -15,3 +15,8 @@ export const Image = styled.Image`
 export const ActivityIndicator = styled.ActivityIndicator.attrs({
   size: 'large',
 })``;
+
+export const StatusBar = styled.StatusBar.attrs({
+  barStyle: 'light-content',
+  backgroundColor: 'white',
+})``;
