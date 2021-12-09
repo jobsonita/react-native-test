@@ -1,4 +1,5 @@
 import React from 'react';
+import {format} from 'date-fns';
 
 import {
   Container,
@@ -38,7 +39,7 @@ export function Message({message}: MessageProps) {
           <Title>{message.sumario}</Title>
           <Sender>Por: {message.remetente}</Sender>
         </TextGroup>
-        <Data>{message.data}</Data>
+        <Data>{format(new Date(message.data), 'dd/MM HH:mm')}</Data>
       </ContentGroup>
       {message.imagemUrl && <Image source={{uri: message.imagemUrl}} />}
     </Container>

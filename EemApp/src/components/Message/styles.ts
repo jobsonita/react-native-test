@@ -8,6 +8,7 @@ export const Container = styled.View`
 export const ContentGroup = styled.View`
   flex-direction: row;
   margin: 8px;
+  margin-right: 0;
 `;
 
 export const Icon = styled.Image`
