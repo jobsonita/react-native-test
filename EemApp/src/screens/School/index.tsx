@@ -9,7 +9,16 @@ import {RootStackParamList} from '../../Router';
 
 import {Message} from '../../components/Message';
 
-import {Container, StatusBar} from './styles';
+import {
+  Button,
+  ButtonGroup,
+  ButtonIcon,
+  ButtonText,
+  Container,
+  NotificationCounter,
+  NotificationCounterText,
+  StatusBar,
+} from './styles';
 
 interface Message {
   idMensagem: number;
@@ -78,6 +87,37 @@ export function SchoolScreen() {
           </DropShadow>
         )}
       />
+      <ButtonGroup>
+        <Button>
+          <ButtonIcon active>N</ButtonIcon>
+          <ButtonText>Notícias</ButtonText>
+        </Button>
+        <Button>
+          <NotificationCounter>
+            <NotificationCounterText>6</NotificationCounterText>
+          </NotificationCounter>
+          <ButtonIcon>E</ButtonIcon>
+          <ButtonText>Escrever</ButtonText>
+        </Button>
+        <Button>
+          <NotificationCounter>
+            <NotificationCounterText>6</NotificationCounterText>
+          </NotificationCounter>
+          <ButtonIcon>M</ButtonIcon>
+          <ButtonText>Menu</ButtonText>
+        </Button>
+        <Button>
+          <ButtonIcon>C</ButtonIcon>
+          <ButtonText>Chegando</ButtonText>
+        </Button>
+        <Button>
+          <NotificationCounter>
+            <NotificationCounterText>99+</NotificationCounterText>
+          </NotificationCounter>
+          <ButtonIcon>P</ButtonIcon>
+          <ButtonText>Perfil</ButtonText>
+        </Button>
+      </ButtonGroup>
     </Container>
   );
 }
