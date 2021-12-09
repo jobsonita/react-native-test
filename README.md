@@ -81,3 +81,7 @@ Será considerado um diferencial se você fizer tratamentos de erros, falhas de 
 # Telas
 
 ![Telas](http://du72ei5gcsbn3.cloudfront.net/static/react-native-test/guia-teste-mobile.png)
+
+# Resultado
+
+<p align="center"><video width=400 src="https://i.imgur.com/uNWAKmb.mp4" autoplay controls></p>
