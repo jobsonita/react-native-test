@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  margin-top: 8px;
-  border: 1px solid #ddd;
+  background-color: white;
+  margin-top: 4px;
 `;
 
 export const ContentGroup = styled.View`

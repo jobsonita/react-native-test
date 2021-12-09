@@ -3,6 +3,7 @@ import {BackHandler, FlatList} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAsyncStorage} from '@react-native-community/async-storage';
+import DropShadow from 'react-native-drop-shadow';
 
 import {RootStackParamList} from '../../Router';
 
@@ -61,7 +62,21 @@ export function SchoolScreen() {
       <FlatList
         data={mensagens}
         keyExtractor={item => item.gudMensagem}
-        renderItem={({item}) => <Message message={item} />}
+        CellRendererComponent={DropShadow}
+        renderItem={({item}) => (
+          <DropShadow
+            style={{
+              shadowColor: '#DDD',
+              shadowOffset: {
+                width: 0,
+                height: 0,
+              },
+              shadowOpacity: 0.5,
+              shadowRadius: 2,
+            }}>
+            <Message message={item} />
+          </DropShadow>
+        )}
       />
     </Container>
   );
