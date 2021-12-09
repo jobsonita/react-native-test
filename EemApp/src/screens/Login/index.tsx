@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, Text} from 'react-native';
+import {Alert, Keyboard, Text, TouchableWithoutFeedback} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAsyncStorage} from '@react-native-community/async-storage';
@@ -71,57 +71,59 @@ export function LoginScreen() {
   return (
     <Container>
       <StatusBar />
-      <Content>
-        <LoginDescriptionText>
-          Informe o usuário e a senha encaminhados pela escola
-        </LoginDescriptionText>
-        <InputGroup>
-          <InputRow>
-            <Image>
-              <Text>O</Text>
-            </Image>
-            <Input
-              placeholder="Usuário"
-              value={username}
-              onChangeText={text => setUsername(text)}
-            />
-          </InputRow>
-          <HorizontalDivider />
-          <InputRow>
-            <Image>
-              <Text>O</Text>
-            </Image>
-            <Input
-              placeholder="Senha"
-              secureTextEntry={true}
-              value={password}
-              onChangeText={text => setPassword(text)}
-            />
-          </InputRow>
-        </InputGroup>
-        <LoginButton onPress={handleLogin} disabled={fetching}>
-          <LoginButtonText>Entrar</LoginButtonText>
-        </LoginButton>
-        <HelpGroup>
-          <SignUpButton>
-            <ButtonText>Esqueci a minha senha</ButtonText>
-          </SignUpButton>
-          <VerticalDivider />
-          <PrivacyPolicyButton>
-            <ButtonText>Política de Privacidade</ButtonText>
-          </PrivacyPolicyButton>
-        </HelpGroup>
-      </Content>
-      <LoginWithPhone>
-        <LoginWithPhoneButton disabled={fetching}>
-          <Image>
-            <Text>O</Text>
-          </Image>
-          <LoginWithPhoneButtonText>
-            Entrar com o celular
-          </LoginWithPhoneButtonText>
-        </LoginWithPhoneButton>
-      </LoginWithPhone>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Content>
+          <LoginDescriptionText>
+            Informe o usuário e a senha encaminhados pela escola
+          </LoginDescriptionText>
+          <InputGroup>
+            <InputRow>
+              <Image>
+                <Text>O</Text>
+              </Image>
+              <Input
+                placeholder="Usuário"
+                value={username}
+                onChangeText={text => setUsername(text)}
+              />
+            </InputRow>
+            <HorizontalDivider />
+            <InputRow>
+              <Image>
+                <Text>O</Text>
+              </Image>
+              <Input
+                placeholder="Senha"
+                secureTextEntry={true}
+                value={password}
+                onChangeText={text => setPassword(text)}
+              />
+            </InputRow>
+          </InputGroup>
+          <LoginButton onPress={handleLogin} disabled={fetching}>
+            <LoginButtonText>Entrar</LoginButtonText>
+          </LoginButton>
+          <HelpGroup>
+            <SignUpButton>
+              <ButtonText>Esqueci a minha senha</ButtonText>
+            </SignUpButton>
+            <VerticalDivider />
+            <PrivacyPolicyButton>
+              <ButtonText>Política de Privacidade</ButtonText>
+            </PrivacyPolicyButton>
+          </HelpGroup>
+          <LoginWithPhone>
+            <LoginWithPhoneButton disabled={fetching}>
+              <Image>
+                <Text>O</Text>
+              </Image>
+              <LoginWithPhoneButtonText>
+                Entrar com o celular
+              </LoginWithPhoneButtonText>
+            </LoginWithPhoneButton>
+          </LoginWithPhone>
+        </Content>
+      </TouchableWithoutFeedback>
     </Container>
   );
 }

@@ -5,9 +5,9 @@ import LinearGradient from 'react-native-linear-gradient';
 export const Container = styled(LinearGradient).attrs({
   colors: ['#2b999a', '#196ca3'],
 })`
-  flex: 1;
+  height: 100%;
+  width: 100%;
   background-color: #2b999a;
-  padding: 16px;
 `;
 
 export const StatusBar = styled.StatusBar.attrs({
@@ -16,10 +16,11 @@ export const StatusBar = styled.StatusBar.attrs({
 })``;
 
 export const Content = styled.View`
-  flex: 1;
+  height: 100%;
   width: 100%;
   align-items: flex-start;
-  padding-top: 100px;
+  justify-content: center;
+  padding: 16px;
 `;
 
 export const LoginDescriptionText = styled.Text`
@@ -100,6 +101,9 @@ export const VerticalDivider = styled.View`
 `;
 
 export const LoginWithPhone = styled.View`
+  position: absolute;
+  bottom: 0;
+  margin: 8px 16px;
   width: 100%;
   border: 1px solid white;
   border-radius: 4px;

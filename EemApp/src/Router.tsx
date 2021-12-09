@@ -24,9 +24,7 @@ export function Router() {
           name="Login"
           component={LoginScreen}
           options={{
-            title: '<',
-            headerTintColor: 'white',
-            headerStyle: {backgroundColor: '#2b999a'},
+            headerShown: false,
           }}
         />
         <Stack.Screen
@@ -42,7 +40,6 @@ export function Router() {
           name="Transition"
           component={TransitionScreen}
           options={{
-            statusBarHidden: true,
             headerShown: false,
           }}
         />
